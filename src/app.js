@@ -4,11 +4,12 @@ const hbs=require('hbs');
 const geocode=require('./utils/geocode');
 const forecast=require('./utils/forecast');
 
+const app=express();
+const port=process.env.PORT || 3000;
 
 // define paths
 const viewsPath=path.join(__dirname,'../templates/views')
 const partialsPath=path.join(__dirname,'../templates/partials')
-const app=express();
 const publicDirPath=path.join(__dirname, '../public');
 
 // set up handlebars
@@ -102,6 +103,6 @@ app.get('*', (req, res) =>{
 
 
 // startup server
-app.listen( 3000, () => {
+app.listen( port, () => {
     console.log('successfully!');
 })
